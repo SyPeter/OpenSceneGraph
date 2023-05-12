@@ -32,7 +32,7 @@
 
 #include <string.h>
 
-#if defined(__linux)
+#if defined(__linux) || defined(EMSCRIPTEN)
     #include <unistd.h>
     #include <linux/sockios.h>
 #elif defined(__FreeBSD__) || defined(__DragonFly__) || defined(__FreeBSD_kernel__)

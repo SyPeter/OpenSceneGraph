@@ -37,10 +37,9 @@ using namespace obj;
 
 static std::string strip( const std::string& ss )
 {
-    std::string result;
-    result.assign( std::find_if( ss.begin(), ss.end(), std::not1( std::ptr_fun< int, int >( isspace ) ) ),
-                   std::find_if( ss.rbegin(), ss.rend(), std::not1( std::ptr_fun< int, int >( isspace ) ) ).base() );
-    return( result );
+    std::string s(ss);
+    s.erase(s.begin(), std::find_if(s.begin(), s.end(), [](int c) {return !std::isspace(c);}));
+    return s;
 }
 
 /*
